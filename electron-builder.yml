@@ -1,0 +1,27 @@
+appId: com.trabahotracker.app
+productName: TrabahoTracker
+directories:
+  buildResources: build
+  output: release
+files:
+  - out/**
+  - package.json
+asarUnpack:
+  - '**/node_modules/sql.js/**'
+win:
+  executableName: TrabahoTracker
+  icon: build/icon.png
+  target:
+    - target: nsis
+      arch:
+        - x64
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  perMachine: false
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: TrabahoTracker
+  artifactName: ${productName}-${version}-setup.${ext}
+  deleteAppDataOnUninstall: false
+npmRebuild: false

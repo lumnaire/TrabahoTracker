@@ -1,0 +1,10 @@
+export const APP_NAME = 'TrabahoTracker' as const
+export const TAGLINE = 'Track applications. Stay consistent. Get hired.' as const
+export const DB_FILENAME = 'trabahotracker.sqlite' as const
+export const DEFAULT_DAILY_GOAL = 10 as const
+export const DEFAULT_WEEKLY_GOAL = 50 as const
+export const NO_RESPONSE_DAYS = 7 as const
+export const BACKUP_FORMAT = 'trabahotracker-backup' as const
+export const BACKUP_VERSION = 1 as const
+export const WEEKDAY_LABELS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'] as const
+export const WEEKDAY_INDEXES = [1, 2, 3, 4, 5] as const
