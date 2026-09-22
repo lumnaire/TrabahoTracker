@@ -300,10 +300,17 @@ function Row({
 }): React.ReactNode {
   return (
     <tr
-      className="border-b border-app-border last:border-0 transition-colors hover:bg-app-subtle/60"
+      onClick={onOpen}
+      className="cursor-pointer border-b border-app-border last:border-0 transition-colors hover:bg-app-subtle/60"
     >
       <td className="px-5 py-3.5">
-        <button onClick={onOpen} className="text-left font-medium text-app-text hover:text-app-accent">
+        <button
+          onClick={(e) => {
+            e.stopPropagation()
+            onOpen()
+          }}
+          className="text-left font-medium text-app-text hover:text-app-accent"
+        >
           {app.companyName}
         </button>
       </td>
@@ -323,7 +330,7 @@ function Row({
       <td className="px-4 py-3.5">
         <StatusBadge status={app.effectiveStatus} size="sm" />
       </td>
-      <td className="px-2 py-3.5">
+      <td className="px-2 py-3.5" onClick={(e) => e.stopPropagation()}>
         <RowActions app={app} />
       </td>
     </tr>

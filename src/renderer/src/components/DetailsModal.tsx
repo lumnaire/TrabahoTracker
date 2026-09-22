@@ -14,17 +14,20 @@ import {
 import { formatLongDate, formatRelative } from '@shared/dates.ts'
 import { getEffectiveStatus } from '@shared/status.ts'
 import { STATUS_LABELS } from '@shared/status.ts'
+import type { StatusHistoryEntry } from '@shared/types.ts'
 import { Modal } from './Modal.tsx'
 import { StatusBadge } from './StatusBadge.tsx'
 import { useAppStore } from '../store.ts'
 import { useUiStore } from '../uiStore.ts'
+
+const EMPTY_HISTORY: StatusHistoryEntry[] = []
 
 const inputClass =
   'w-full rounded-xl border border-app-border bg-app-subtle/50 px-3.5 py-2.5 text-sm text-app-text'
 
 export function DetailsModal({ appId }: { appId: string }): React.ReactNode {
   const app = useAppStore((s) => s.apps.find((a) => a.id === appId))
-  const history = useAppStore((s) => s.historyById[appId] ?? [])
+  const history = useAppStore((s) => s.historyById[appId] ?? EMPTY_HISTORY)
   const loadHistory = useAppStore((s) => s.loadHistory)
   const setModal = useUiStore((s) => s.setModal)
 

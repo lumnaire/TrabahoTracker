@@ -111,7 +111,7 @@ export function RowActions({ app }: { app: Application }): React.ReactNode {
                   setModal({ kind: 'details', id: app.id })
                 }}
               >
-                <Eye className="h-4 w-4 text-app-faint" /> View Details
+                <Eye className="h-4 w-4 text-app-faint" /> See Details
               </button>
               <button
                 className={itemClass}
